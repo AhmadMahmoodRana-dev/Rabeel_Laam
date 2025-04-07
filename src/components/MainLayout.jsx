@@ -71,7 +71,7 @@ const MainLayout = ({ children }) => {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"></div>
+        <div className="fixed inset-0 bg-white bg-opacity-50 z-30 md:hidden"></div>
       )}
 
       {/* Sidebar */}
