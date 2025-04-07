@@ -1,16 +1,19 @@
-import React from 'react'
-import HomePageMainCarousel from '../components/HomePageMainCarousel'
-import HomePageBottomSliders from '../components/HomePageBottomSliders'
-import HomePageBottomSliders2 from '../components/HomePageBottomSliders2'
+import React from "react";
+import HomePageMainCarousel from "../components/Home/HomePageMainCarousel";
+import HomePageGridStructure from "../components/Home/HomePageGridStructure";
+import HomePageCategorySlider from "../components/Home/HomePageCategorySlider";
 
 const Home = () => {
   return (
-    <div className='w-full h-screen px-4'>
+    <div className="w-full h-screen xl:px-16 lg:px-12 md:px-10 sm:px-8 px-4 ">
       <HomePageMainCarousel />
-      <HomePageBottomSliders/>
-      <HomePageBottomSliders2/>
+      <HomePageCategorySlider/>
+      <HomePageCategorySlider/>
+      <HomePageGridStructure heading={"Shop Luxury Picks"} />
+      <HomePageGridStructure heading={"Buy Festive Glam"} />
+      <HomePageGridStructure heading={"Shop Daily Pret"} />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Carousel1 from "../assets/slider (1).png";
-import Carousel2 from "../assets/slider (2).png";
-import Carousel3 from "../assets/slider (3).png";
+import Carousel1 from "../../assets/slider (1).png";
+import Carousel2 from "../../assets/slider (2).png";
+import Carousel3 from "../../assets/slider (3).png";
 const HomePageMainCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [Carousel1, Carousel2, Carousel3];

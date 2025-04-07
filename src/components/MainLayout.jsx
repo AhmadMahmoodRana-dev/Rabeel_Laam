@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronDown, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
-import logo from "../../src/assets/download.png";
-import pk from "../../src/assets/pk.svg";
+import logo from "../assets/download.png";
+import pk from "../assets/pk.svg";
 import TopBar from "./TopBar";
 
 const MainLayout = ({ children }) => {

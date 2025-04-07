@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import MainLayout from "../components/MainLayout";
 
 const PrivateRoutes = () => {
-  const token = true; 
+  const token = true;
   return token ? (
     <MainLayout>
       <Outlet />
