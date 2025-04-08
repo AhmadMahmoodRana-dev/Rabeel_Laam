@@ -138,7 +138,7 @@ function TrendingProducts() {
         </h1>
 
         {/* Filters bar */}
-        <div className="flex items-center gap-2 p-4">
+        <div className="flex items-center gap-2 p-4 overflow-x-auto">
           <button
             className="p-2 border border-gray-300 rounded-full hover:bg-gray-100"
             onClick={() => setShowFilter(true)}

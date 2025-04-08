@@ -18,7 +18,7 @@ const MainLayout = ({ children }) => {
      <TopBar/>
 
       {/* Navbar */}
-      <nav className="bg-white fixed top-7  w-full z-40 border-b border-gray-200">
+      <nav className="bg-white fixed top-2 md:top-7  w-full z-40 border-b border-gray-200">
         <div className="flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 py-2">
           <div className="flex w-full md:w-auto justify-between items-center">
             <div className="flex items-center">
