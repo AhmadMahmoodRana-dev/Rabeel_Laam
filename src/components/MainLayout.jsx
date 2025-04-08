@@ -88,10 +88,7 @@ const MainLayout = ({ children }) => {
               "Women",
               "Men",
               "Kids",
-              "Brands",
-              "Top Curations",
-              "Orders",
-              "Rewards",
+              
             ].map((item) => (
               <li key={item}>
                 <button

@@ -14,6 +14,7 @@ import image7 from "../assets/unstiched (7).png";
 import image8 from "../assets/unstiched (8).png";
 import TrendingProducts from "../components/Home/TrendingProducts";
 import OneTimeShowModel from "../components/OneTimeShowModel";
+import Footer from "../components/Footer/Footer";
 const Home = () => {
   const products = [
     {
@@ -67,7 +68,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full h-screen xl:px-16 lg:px-12 md:px-10 sm:px-8 px-4 ">
+    <div>
+
+    <div className="w-full min-h-screen xl:px-16 lg:px-12 md:px-10 sm:px-8 px-4 ">
       <HomePageMainCarousel />
       <HomePageCategorySlider />
       <HomePageCategorySlider />
@@ -82,6 +85,8 @@ const Home = () => {
       <HomePageGridStructure heading={"SUMMER LAWN '25"} />
       <TrendingProducts />
       <OneTimeShowModel />
+    </div>
+      <Footer/>
     </div>
   );
 };
