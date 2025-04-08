@@ -13,6 +13,7 @@ import image6 from "../assets/unstiched (6).png";
 import image7 from "../assets/unstiched (7).png";
 import image8 from "../assets/unstiched (8).png";
 import TrendingProducts from "../components/Home/TrendingProducts";
+import OneTimeShowModel from "../components/OneTimeShowModel";
 const Home = () => {
   const products = [
     {
@@ -80,6 +81,7 @@ const Home = () => {
       <LargeCardSlider heading={"Shop Accessories"} products={products} />
       <HomePageGridStructure heading={"SUMMER LAWN '25"} />
       <TrendingProducts />
+      <OneTimeShowModel />
     </div>
   );
 };

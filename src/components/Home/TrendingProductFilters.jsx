@@ -67,11 +67,11 @@ const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-transparent bg-opacity-50"
       onClick={onClose}
     >
       <div
-        className="relative h-[85vh] w-[90vw] max-w-2xl overflow-hidden rounded-lg bg-white shadow-xl"
+        className="relative h-[60vh] w-[90vw] max-w-2xl overflow-hidden rounded-lg bg-white shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -88,7 +88,7 @@ const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
           </button>
         </div>
 
-        <div className="flex h-[calc(85vh-9rem)] overflow-hidden">
+        <div className="flex h-[calc(60vh-9rem)] overflow-hidden">
           {/* Sidebar */}
           <div className="w-[150px] overflow-y-auto border-r border-gray-100 bg-white">
             {categories.map((category) => (
