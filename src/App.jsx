@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import Home from "./pages/Home";
+import CustomerPolicy from "./pages/CustomerPolicy";
+import ContactUs from "./pages/ContactUs";
 
 
 export default function App() {
@@ -13,6 +15,8 @@ export default function App() {
 
       <Route element={<PrivateRoutes />}>
         <Route path="/" element={<Home/>} />
+        <Route path="/customer-policy" element={<CustomerPolicy/>} />
+        <Route path="/contactUS" element={<ContactUs/>} />
       </Route>
     </Routes>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FiChevronDown, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import logo from "../assets/download.png";
 import pk from "../assets/pk.svg";
 import TopBar from "./TopBar";
@@ -12,13 +13,32 @@ const MainLayout = ({ children }) => {
     setOpenSection(openSection === section ? null : section);
   };
 
+  const navItems = [
+    { label: "All", path: "/category/all" },
+    { label: "New Arrivals", path: "/category/new-arrivals" },
+    {
+      label: "Women",
+      children: ["Clothing", "Accessories", "Foot Wear"],
+    },
+    {
+      label: "Men",
+      children: ["Clothing", "Footwear", "Accessories"],
+    },
+    // {
+    //   label: "Kids",
+    //   children: ["Girl", "Boy"],
+    // },
+    { label: "Contact Us", path: "/contactUs" },
+    { label: "Customer Policy", path: "/customer-policy" },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Top Bar */}
-     <TopBar/>
+      <TopBar />
 
       {/* Navbar */}
-      <nav className="bg-white fixed top-2 md:top-7  w-full z-40 border-b border-gray-200">
+      <nav className="bg-white fixed top-2 md:top-7 w-full z-40 border-b border-gray-200">
         <div className="flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 py-2">
           <div className="flex w-full md:w-auto justify-between items-center">
             <div className="flex items-center">
@@ -82,67 +102,52 @@ const MainLayout = ({ children }) => {
       >
         <nav className="p-4">
           <ul className="space-y-2">
-            {[
-              "All",
-              "New Arrivals",
-              "Women",
-              "Men",
-              "Kids",
-              
-            ].map((item) => (
-              <li key={item}>
-                <button
-                  className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded flex justify-between items-center text-sm md:text-base"
-                  onClick={() => {
-                    toggleSection(item);
-                    // if (window.innerWidth < 768) setIsMobileMenuOpen(false);
-                  }}
-                >
-                  {item}
-                  {["Women", "Men", "Kids"].includes(item) && (
-                    <FiChevronDown
-                      className={`transform ${
-                        openSection === item ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
-                </button>
-                {openSection === item && (
-                  <ul className="ml-8 space-y-2 mt-2">
-                    {item === "Women" &&
-                      ["Clothing", "Accessories", "Foot Wear"].map((sub) => (
-                        <li key={sub}>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 hover:bg-gray-100 rounded text-sm"
-                          >
-                            {sub}
-                          </a>
-                        </li>
-                      ))}
-                    {item === "Men" &&
-                      ["Clothing", "Footwear", "Accessories"].map((sub) => (
-                        <li key={sub}>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 hover:bg-gray-100 rounded text-sm"
-                          >
-                            {sub}
-                          </a>
-                        </li>
-                      ))}
-                    {item === "Kids" &&
-                      ["Girl", "Boy"].map((sub) => (
-                        <li key={sub}>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 hover:bg-gray-100 rounded text-sm"
-                          >
-                            {sub}
-                          </a>
-                        </li>
-                      ))}
-                  </ul>
+            {navItems.map((item) => (
+              <li key={item.label}>
+                {item.children ? (
+                  <>
+                    <button
+                      className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded flex justify-between items-center text-sm md:text-base"
+                      onClick={() => toggleSection(item.label)}
+                    >
+                      {item.label}
+                      <FiChevronDown
+                        className={`transform transition-transform duration-200 ${
+                          openSection === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {openSection === item.label && (
+                      <ul className="ml-8 space-y-2 mt-2">
+                        {item.children.map((sub) => (
+                          <li key={sub}>
+                            <Link
+                              to={`/category/${item.label.toLowerCase()}/${sub
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}`}
+                              className="block px-4 py-2 hover:bg-gray-100 rounded text-sm"
+                              onClick={() =>
+                                window.innerWidth < 768 &&
+                                setIsMobileMenuOpen(false)
+                              }
+                            >
+                              {sub}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className=" w-full text-left px-4 py-2 hover:bg-gray-100 rounded flex justify-between items-center text-sm md:text-base"
+                    onClick={() =>
+                      window.innerWidth < 768 && setIsMobileMenuOpen(false)
+                    }
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </li>
             ))}
