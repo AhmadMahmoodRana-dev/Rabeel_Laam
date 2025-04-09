@@ -1,4 +1,11 @@
 import { useState } from 'react';
+import SortBy from '../filter/SortBy';
+import Fabric from '../filter/Fabric';
+import Price from '../filter/Price';
+import Size from '../filter/Size';
+import Color from '../filter/Color';
+import Brand from '../filter/Brand';
+import Season from '../filter/Season';
 
 const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
   const [activeCategory, setActiveCategory] = useState('Sort By');
@@ -25,18 +32,7 @@ const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
     'Occasion'
   ];
 
-  const sortOptions = [
-    { id: 'recommended', label: 'Recommended' },
-    { id: 'best-selling', label: 'Best Selling' },
-    { id: 'newest-first', label: 'Newest First' },
-    { id: 'price-low-high', label: 'Price: Low To High' },
-    { id: 'price-high-low', label: 'Price: High To Low' },
-    { id: 'discount-high-low', label: 'Discount: High To Low' },
-    { id: 'discount-low-high', label: 'Discount: Low To High' },
-    { id: 'delivery-earliest-latest', label: 'Delivery: Earliest To Latest' },
-    { id: 'delivery-latest-earliest', label: 'Delivery: Latest To Earliest' },
-  ];
-
+ 
   const handleSortOptionClick = (optionId) => {
     setFilterState({
       ...filterState,
@@ -67,7 +63,7 @@ const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-transparent bg-opacity-50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 bg-opacity-50"
       onClick={onClose}
     >
       <div
@@ -107,78 +103,27 @@ const TrendingProductFIlters = ({ onClose, onApplyFilters }) => {
           {/* Content */}
           <div className="flex-1 overflow-y-auto p-4">
             {activeCategory === 'Sort By' && (
-              <div className="space-y-4">
-                <h3 className="mb-2 text-lg font-medium">Sort By</h3>
-                <div className="flex flex-wrap gap-2">
-                  {sortOptions.slice(0, 3).map((option) => (
-                    <button
-                      key={option.id}
-                      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                        filterState.sortBy === option.id
-                          ? 'bg-gray-900 text-white'
-                          : 'border border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
-                      onClick={() => handleSortOptionClick(option.id)}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {sortOptions.slice(3, 5).map((option) => (
-                    <button
-                      key={option.id}
-                      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                        filterState.sortBy === option.id
-                          ? 'bg-gray-900 text-white'
-                          : 'border border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
-                      onClick={() => handleSortOptionClick(option.id)}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {sortOptions.slice(5, 7).map((option) => (
-                    <button
-                      key={option.id}
-                      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                        filterState.sortBy === option.id
-                          ? 'bg-gray-900 text-white'
-                          : 'border border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
-                      onClick={() => handleSortOptionClick(option.id)}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {sortOptions.slice(7, 9).map((option) => (
-                    <button
-                      key={option.id}
-                      className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                        filterState.sortBy === option.id
-                          ? 'bg-gray-900 text-white'
-                          : 'border border-gray-300 text-gray-700 hover:border-gray-400'
-                      }`}
-                      onClick={() => handleSortOptionClick(option.id)}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <SortBy filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
             )}
-
-            {/* Placeholder for other filter categories */}
-            {activeCategory !== 'Sort By' && (
-              <div>
-                <h3 className="mb-2 text-lg font-medium">{activeCategory}</h3>
-                <p className="mt-2 text-gray-500">Filter options for {activeCategory} would appear here</p>
-              </div>
+            {activeCategory === 'Fabric' && (
+              <Fabric filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
             )}
+            {activeCategory === 'Price' && (
+              <Price/>
+            )}
+            {activeCategory === 'Size' && (
+              <Size filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
+            )}
+            {activeCategory === 'Color' && (
+              <Color filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
+            )}
+            {activeCategory === 'Brands' && (
+              <Brand filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
+            )}
+            {activeCategory === 'Season' && (
+              <Season filterState={filterState} handleSortOptionClick={handleSortOptionClick} />
+            )}
+            
           </div>
         </div>
 
