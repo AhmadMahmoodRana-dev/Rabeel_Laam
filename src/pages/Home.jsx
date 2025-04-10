@@ -15,6 +15,7 @@ import image8 from "../assets/unstiched (8).png";
 import TrendingProducts from "../components/Home/TrendingProducts";
 import OneTimeShowModel from "../components/OneTimeShowModel";
 import Footer from "../components/Footer/Footer";
+import ProductDetail from "../components/ProductDetail";
 const Home = () => {
   const products = [
     {
@@ -85,6 +86,7 @@ const Home = () => {
       <HomePageGridStructure heading={"SUMMER LAWN '25"} />
       <TrendingProducts />
       <OneTimeShowModel />
+      <ProductDetail/>
     </div>
       <Footer/>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiChevronDown, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import logo from "../assets/download.png";
+import logo from "../assets/logo.png";
 import pk from "../assets/pk.svg";
 import TopBar from "./TopBar";
 
@@ -14,8 +14,8 @@ const MainLayout = ({ children }) => {
   };
 
   const navItems = [
-    { label: "All", path: "/category/all" },
-    { label: "New Arrivals", path: "/category/new-arrivals" },
+    { label: "All", path: "/" },
+    { label: "New Arrivals", path: "/" },
     {
       label: "Women",
       children: ["Clothing", "Accessories", "Foot Wear"],
@@ -48,7 +48,7 @@ const MainLayout = ({ children }) => {
               >
                 {isMobileMenuOpen ? <FiX /> : <FiMenu />}
               </button>
-              <img src={logo} alt="Logo" className="h-12 md:h-20" />
+              <img src={logo} alt="Logo" className="h-14 md:h-24" />
             </div>
 
             <div className="flex items-center md:hidden">
