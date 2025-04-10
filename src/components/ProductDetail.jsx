@@ -1,35 +1,39 @@
-import {useState } from "react";
+import { useContext, useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import image1 from "../assets/unstiched (1).png";
 import image2 from "../assets/unstiched (2).png";
 import image3 from "../assets/unstiched (3).png";
 import image4 from "../assets/unstiched (4).png";
-
+import { Context } from "../Context/Context";
+import { RxCross2 } from "react-icons/rx";
 
 const product = {
-  name: 'Opal - Fresh Birds',
-  id: 'FTW7647',
+  name: "Opal - Fresh Birds",
+  id: "FTW7647",
   price: 4849,
   oldPrice: 8082,
   discount: 40,
   sizes: [
-    '1-2Y', '2-3Y', '3-4Y', '5-6Y',
-    '6-7Y', '7-8Y', '8-9Y', '9-10Y',
-    '11-12Y', '14-15Y',
+    "1-2Y",
+    "2-3Y",
+    "3-4Y",
+    "5-6Y",
+    "6-7Y",
+    "7-8Y",
+    "8-9Y",
+    "9-10Y",
+    "11-12Y",
+    "14-15Y",
   ],
-  images: [
-   image1,
-   image2,
-   image3,
-   image4,
-  ],
+  images: [image1, image2, image3, image4],
 };
 
 const ProductDetail = () => {
-  const [open, setOpen] = useState(false);
+  const { openProductDetail, setOpenProductDetail, selectedProduct } =
+    useContext(Context);
 
   const handleClose = () => {
-    setOpen(false);
+    setOpenProductDetail(false);
   };
 
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
@@ -37,19 +41,27 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <Dialog open={open} onClose={handleClose} className="relative z-10">
+    <Dialog
+      open={openProductDetail}
+      onClose={handleClose}
+      className="relative z-10"
+    >
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-transparent transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex justify-center min-h-full mt-20 items-center ml-64">
+        <div className="flex justify-center min-h-full mt-32 items-center md:ml-64 md:mx-0 mx-4">
           <DialogPanel
             transition
-            className="relative transform overflow-hidden rounded-lg bg-white  text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-[90%] data-closed:sm:translate-y-0 data-closed:sm:scale-95"
+            className="relative transform overflow-hidden rounded-lg bg-white border-8 border-[#e86e09] text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-[90%] data-closed:sm:translate-y-0 data-closed:sm:scale-95"
           >
-            <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <button onClick={() =>setOpenProductDetail(!openProductDetail) } className="absolute right-4 text-xl top-3">
+              <RxCross2 color="#e86e09" />
+            </button>
+
+            <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <div className="w-full mb-4">
                   <img
@@ -81,7 +93,7 @@ const ProductDetail = () => {
               <div className="space-y-5">
                 <div>
                   <h1 className="text-2xl font-bold">{product.name}</h1>
-                  <p className="text-sm text-gray-500">ID: {product.id}</p>
+                  <p className="text-sm text-gray-500">ID: {product.id}11</p>
                 </div>
 
                 <div>
@@ -122,7 +134,7 @@ const ProductDetail = () => {
 
                 {/* Quantity Selector */}
                 <div className="flex items-center gap-3">
-                  <p className="font-medium">Quantity:</p>
+                  <p className="font-medium">Quantity:{selectedProduct?.id}</p>
                   <div className="flex items-center border rounded-lg overflow-hidden">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -169,6 +181,30 @@ const ProductDetail = () => {
                   <button className="border w-full py-3 rounded-lg hover:bg-gray-100">
                     ♡ Wishlist
                   </button>
+                </div>
+                {/* PRODUCT FEATURES */}
+                <div className="border-t pt-4">
+                  <h3 className="text-lg font-semibold mb-2">
+                    Product Features
+                  </h3>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <li className="flex items-center">
+                      <span className="text-blue-500 mr-2">✓</span>
+                      100% Cotton Fabric
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-blue-500 mr-2">✓</span>
+                      100% Cotton Fabric
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-blue-500 mr-2">✓</span>
+                      100% Cotton Fabric
+                    </li>
+                    <li className="flex items-center">
+                      <span className="text-blue-500 mr-2">✓</span>
+                      100% Cotton Fabric
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>

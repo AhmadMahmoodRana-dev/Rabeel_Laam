@@ -17,7 +17,7 @@ import image8 from "../../assets/unstiched (8).png";
 const mockProducts = [
   {
     id: 1,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE1",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -26,7 +26,7 @@ const mockProducts = [
   },
   {
     id: 2,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE2",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -35,7 +35,7 @@ const mockProducts = [
   },
   {
     id: 3,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE3",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -44,7 +44,7 @@ const mockProducts = [
   },
   {
     id: 4,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE4",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -53,7 +53,7 @@ const mockProducts = [
   },
   {
     id: 5,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE5",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -62,7 +62,7 @@ const mockProducts = [
   },
   {
     id: 6,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE6",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -71,7 +71,7 @@ const mockProducts = [
   },
   {
     id: 7,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE7",
     price: 9999,
     originalPrice: 33330,
     discount: 70,
@@ -80,7 +80,7 @@ const mockProducts = [
   },
   {
     id: 8,
-    name: "Agha Jaan • CELINE",
+    name: "Agha Jaan • CELINE8",
     price: 9999,
     originalPrice: 33330,
     discount: 70,

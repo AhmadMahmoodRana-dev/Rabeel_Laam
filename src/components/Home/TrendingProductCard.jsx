@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { IoBagAddOutline } from "react-icons/io5";
+import { Context } from "../../Context/Context";
 
-const TrendingProductCard = ({product}) => {
+const TrendingProductCard = ({ product }) => {
+  const {openProductDetail, setOpenProductDetail,setSelectedProduct} = useContext(Context)
+  const handleOpenDetail = () => {
+    setSelectedProduct(product);     // <- set clicked product
+    setOpenProductDetail(!openProductDetail);      // <- open modal
+  };
+  console.log(openProductDetail);
+
   return (
     <div
       key={product.id}
@@ -14,17 +23,20 @@ const TrendingProductCard = ({product}) => {
           className="rounded-t-lg h-96 w-full object-cover"
         />
         {product.discount && (
-          <span className="absolute top-2 left-2 bg-red-600 text-white text-sm px-2 py-1 rounded">
+          <span className="absolute top-2 left-2 bg-[#e86e09] text-white text-sm px-2 py-1 rounded">
             -{product.discount}%
           </span>
         )}
         <button className="absolute top-2 right-2 text-gray-700 text-xl">
           <FaRegHeart />
         </button>
+        <button onClick={() => handleOpenDetail()} className="bg-white p-3 hover:bg-[#e86e09] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1">
+          <IoBagAddOutline />
+        </button>
       </div>
 
       <div className="p-4">
-        <p className="text-lg text-red-600 font-semibold">
+        <p className="text-lg text-[#e86e09] font-semibold">
           PKR {product.price.toLocaleString()}
         </p>
         {product.originalPrice && (
@@ -40,6 +52,7 @@ const TrendingProductCard = ({product}) => {
           </span>
         )}
       </div>
+      
     </div>
   );
 };
