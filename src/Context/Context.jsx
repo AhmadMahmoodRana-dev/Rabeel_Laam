@@ -5,6 +5,7 @@ export const Context = createContext();
 const ContextProvider = (props) => {
  const [openProductDetail, setOpenProductDetail] = useState(false);
  const [selectedProduct, setSelectedProduct] = useState();
+ const [openCart,setOpenCart] = useState(false)
 
 
 
@@ -12,7 +13,7 @@ const ContextProvider = (props) => {
   // ######################################################################################################################################
 
   const contextValue = {
-    openProductDetail, setOpenProductDetail,selectedProduct, setSelectedProduct
+    openProductDetail, setOpenProductDetail,selectedProduct, setSelectedProduct,openCart,setOpenCart
   };
 
   return (

@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiChevronDown, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import pk from "../assets/pk.svg";
 import TopBar from "./TopBar";
+import ShoppingCart from "../pages/ShoppingCart";
+import { Context } from "../Context/Context";
 
 const MainLayout = ({ children }) => {
   const [openSection, setOpenSection] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+const {openCart,setOpenCart} = useContext(Context)
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
@@ -24,16 +26,13 @@ const MainLayout = ({ children }) => {
       label: "Men",
       children: ["Clothing", "Footwear", "Accessories"],
     },
-    // {
-    //   label: "Kids",
-    //   children: ["Girl", "Boy"],
-    // },
     { label: "Contact Us", path: "/contactUs" },
     { label: "Customer Policy", path: "/customer-policy" },
   ];
 
   return (
     <div className="min-h-screen">
+    <ShoppingCart/>
       {/* Top Bar */}
       <TopBar />
 
@@ -85,7 +84,7 @@ const MainLayout = ({ children }) => {
                 </span>
               </div>
             </div>
-            <FiShoppingBag className="text-2xl ml-4 cursor-pointer" />
+            <FiShoppingBag onClick={() => setOpenCart(!openCart)} className="text-2xl ml-4 cursor-pointer" />
           </div>
         </div>
       </nav>
