@@ -102,7 +102,7 @@ const filters = [
   "Delivery",
 ];
 
-function TrendingProducts() {
+function TrendingProducts({ show }) {
   const [showFilter, setShowFilter] = useState(false);
   const [activeFilters, setActiveFilters] = useState(null);
   const [products, setProducts] = useState(mockProducts);
@@ -133,9 +133,11 @@ function TrendingProducts() {
   return (
     <div className="min-h-screen p-4">
       <div className="mx-auto w-full">
-        <h1 className="mb-6 text-3xl font-bold text-gray-900">
-          Product Catalog
-        </h1>
+        {show ? (
+          <h1 className="mb-6 text-3xl font-bold text-gray-900">
+            Product Catalog
+          </h1>
+        ) : null}
 
         {/* Filters bar */}
         <div className="flex items-center gap-2 p-4 overflow-x-auto">

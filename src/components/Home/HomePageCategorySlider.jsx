@@ -11,13 +11,13 @@ import carousel7 from "../../assets/category (10).png";
 
 const HomePageCategorySlider = () => {
   const products = [
-    { id: 1, name: "Rawalpindi", image: carousel1 },
-    { id: 2, name: "Faisalabad", image: carousel2 },
-    { id: 3, name: "Gujranwala", image: carousel3 },
-    { id: 4, name: "Lahore", image: carousel4 },
-    { id: 5, name: "Multan", image: carousel5 },
-    { id: 6, name: "Hyderabad", image: carousel6 },
-    { id: 7, name: "Karachi", image: carousel7 },
+    { id: 1, name: "Rawalpindi", image: carousel1,link:"/category/"},
+    { id: 2, name: "Faisalabad", image: carousel2,link:"/category/"},
+    { id: 3, name: "Gujranwala", image: carousel3,link:"/category/"},
+    { id: 4, name: "Lahore", image: carousel4,link:"/category/"},
+    { id: 5, name: "Multan", image: carousel5,link:"/category/"},
+    { id: 6, name: "Hyderabad", image: carousel6,link:"/category/"},
+    { id: 7, name: "Karachi", image: carousel7,link:"/category/"},
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,7 +95,7 @@ const HomePageCategorySlider = () => {
               <div className="w-full px-2">
                 {" "}
                 {/* Added horizontal padding */}
-                <SliderCard name={p.name} image={p.image} />
+                <SliderCard name={p.name} image={p.image} link={p.link} />
               </div>
             </div>
           ))}

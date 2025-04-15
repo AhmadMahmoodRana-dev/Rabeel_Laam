@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CustomerPolicy from "./pages/CustomerPolicy";
 import ContactUs from "./pages/ContactUs";
 import CheckoutForm from "./pages/CheckoutForm";
+import CategoryPage from "./pages/CategoryPage";
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/customer-policy" element={<CustomerPolicy/>} />
         <Route path="/contactUS" element={<ContactUs/>} />
         <Route path="/checkout" element={<CheckoutForm/>} />
+        <Route path="/category/:name" element={<CategoryPage/>} />
       </Route>
     </Routes>
     </div>
