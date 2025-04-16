@@ -52,7 +52,7 @@ const ProductDetail = () => {
       />
 
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div className="flex justify-center min-h-full mt-32 items-center md:ml-64 md:mx-0 mx-4">
+        <div className="flex justify-center min-h-full  items-center  md:mx-0 mx-4">
           <DialogPanel
             transition
             className="relative transform overflow-hidden rounded-lg bg-white border-8 border-[#e86e09] text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-[90%] data-closed:sm:translate-y-0 data-closed:sm:scale-95"
@@ -133,7 +133,7 @@ const ProductDetail = () => {
                 </div>
 
                 {/* Quantity Selector */}
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <p className="font-medium">Quantity:{selectedProduct?.id}</p>
                   <div className="flex items-center border rounded-lg overflow-hidden">
                     <button

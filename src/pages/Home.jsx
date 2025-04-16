@@ -85,7 +85,7 @@ const Home = () => {
       <LargeCardSlider heading={"Shop Accessories"} products={products} />
       <HomePageGridStructure heading={"SUMMER LAWN '25"} />
       <TrendingProducts />
-      <OneTimeShowModel />
+      {/* <OneTimeShowModel /> */}
       <ProductDetail/>
     </div>
       <Footer/>

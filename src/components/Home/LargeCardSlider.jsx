@@ -12,8 +12,8 @@ const LargeCardSlider = ({heading,products}) => {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width >= 1536) setPerSlide(4); // 2xl screens
-      else if (width >= 1280) setPerSlide(4); // xl
+      if (width >= 1536) setPerSlide(5); // 2xl screens
+      else if (width >= 1280) setPerSlide(5); // xl
       else if (width >= 1024) setPerSlide(2); // lg
       else if (width >= 768) setPerSlide(1.45); // md
       else if (width >= 640) setPerSlide(1.45); // sm

@@ -4,17 +4,19 @@ import { IoBagAddOutline } from "react-icons/io5";
 import { Context } from "../../Context/Context";
 
 const TrendingProductCard = ({ product }) => {
-  const {openProductDetail, setOpenProductDetail,setSelectedProduct} = useContext(Context)
+  const { openProductDetail, setOpenProductDetail, setSelectedProduct } =
+    useContext(Context);
   const handleOpenDetail = () => {
-    setSelectedProduct(product);     // <- set clicked product
-    setOpenProductDetail(!openProductDetail);      // <- open modal
+    setSelectedProduct(product); // <- set clicked product
+    setOpenProductDetail(!openProductDetail); // <- open modal
   };
   console.log(openProductDetail);
 
   return (
     <div
+      onClick={() => handleOpenDetail()}
       key={product.id}
-      className="min-w-[200px] bg-white rounded-lg shadow hover:shadow-md transition duration-200 relative"
+      className="min-w-[200px] cursor-pointer bg-white rounded-lg shadow hover:shadow-md transition duration-200 relative"
     >
       <div className="relative">
         <img
@@ -30,7 +32,10 @@ const TrendingProductCard = ({ product }) => {
         <button className="absolute top-2 right-2 text-gray-700 text-xl">
           <FaRegHeart />
         </button>
-        <button onClick={() => handleOpenDetail()} className="bg-white p-3 hover:bg-[#e86e09] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1">
+        <button
+          onClick={() => handleOpenDetail()}
+          className="bg-white p-3 hover:bg-[#e86e09] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1"
+        >
           <IoBagAddOutline />
         </button>
       </div>
@@ -52,7 +57,6 @@ const TrendingProductCard = ({ product }) => {
           </span>
         )}
       </div>
-      
     </div>
   );
 };
