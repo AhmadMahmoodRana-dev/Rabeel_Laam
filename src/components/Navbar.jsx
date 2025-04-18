@@ -4,6 +4,7 @@ import { FaUser, FaShoppingCart, FaSearch, FaTimes } from "react-icons/fa";
 import { FaShopify } from "react-icons/fa";
 import { Context } from "../Context/Context";
 import logo from "../assets/logo.png"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenOpen, setIsMenOpen] = useState(false);
@@ -48,11 +49,11 @@ const Navbar = () => {
 
           {/* Desktop Menu Items */}
           <div className="hidden md:flex space-x-6 font-semibold">
-            <a href="#" className="hover:text-blue-600">HOME</a>
+            <Link to={'/'} className="hover:text-blue-600">HOME</Link>
             <a href="#" className="hover:text-blue-600">NEW ARRIVALS</a>
 
             {/* MEN */}
-            <div className="relative">
+            <div className="relative">  
               <button
                 onClick={() => setIsMenOpen(!isMenOpen)}
                 className="flex items-center hover:text-blue-600"

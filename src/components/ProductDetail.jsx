@@ -6,6 +6,7 @@ import image3 from "../assets/unstiched (3).png";
 import image4 from "../assets/unstiched (4).png";
 import { Context } from "../Context/Context";
 import { RxCross2 } from "react-icons/rx";
+import { Link, useNavigate } from "react-router-dom";
 
 const product = {
   name: "Opal - Fresh Birds",
@@ -29,10 +30,19 @@ const product = {
 };
 
 const ProductDetail = () => {
-  const { openProductDetail, setOpenProductDetail, selectedProduct } =
+  const { openProductDetail, setOpenProductDetail, selectedProduct,openCart,setOpenCart } =
     useContext(Context);
+    const navigate = useNavigate()
 
   const handleClose = () => {
+    setOpenProductDetail(false);
+  };
+  const handlecart = () => {
+    setOpenCart(!openCart);
+    setOpenProductDetail(false);
+  };
+  const handleBuy = () => {
+navigate("/checkout")
     setOpenProductDetail(false);
   };
 
@@ -175,11 +185,11 @@ const ProductDetail = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800 transition">
-                    Add to Bag
+                  <button onClick={() => handlecart()} className="bg-black text-white w-full py-3 rounded-lg hover:bg-gray-800 transition">
+                    Add to Cart
                   </button>
-                  <button className="border w-full py-3 rounded-lg hover:bg-gray-100">
-                    ♡ Wishlist
+                  <button onClick={() => handleBuy()}  className="border w-full text-center py-3 rounded-lg hover:bg-gray-100">
+                    Buy It Now
                   </button>
                 </div>
                 {/* PRODUCT FEATURES */}

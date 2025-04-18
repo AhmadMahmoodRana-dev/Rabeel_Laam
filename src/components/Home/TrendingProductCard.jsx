@@ -4,13 +4,11 @@ import { IoBagAddOutline } from "react-icons/io5";
 import { Context } from "../../Context/Context";
 
 const TrendingProductCard = ({ product }) => {
-  const { openProductDetail, setOpenProductDetail, setSelectedProduct } =
-    useContext(Context);
+  const { openProductDetail, setOpenProductDetail, setSelectedProduct } =useContext(Context);
   const handleOpenDetail = () => {
-    setSelectedProduct(product); // <- set clicked product
-    setOpenProductDetail(!openProductDetail); // <- open modal
+    setSelectedProduct(product);
+    setOpenProductDetail(!openProductDetail);
   };
-  console.log(openProductDetail);
 
   return (
     <div

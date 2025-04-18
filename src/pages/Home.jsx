@@ -13,7 +13,6 @@ import image6 from "../assets/unstiched (6).png";
 import image7 from "../assets/unstiched (7).png";
 import image8 from "../assets/unstiched (8).png";
 import TrendingProducts from "../components/Home/TrendingProducts";
-import OneTimeShowModel from "../components/OneTimeShowModel";
 import Footer from "../components/Footer/Footer";
 import ProductDetail from "../components/ProductDetail";
 const Home = () => {
