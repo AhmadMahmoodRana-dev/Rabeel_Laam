@@ -1,283 +1,246 @@
 import React from "react";
 
 export default function CheckoutForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can handle form submission logic here (e.g., send to backend)
+    alert("Form submitted!");
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-white shadow-xl rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 lg:p-8">
-          {/* Left Column */}
-          <div className="lg:col-span-2 space-y-8">
-            {/* Contact Information */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Contact Information
-              </h2>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#e86e09] focus:border-[#e86e09] transition-all"
-                    placeholder="john.doe@company.com"
-                  />
-                </div>
-              </div>
-            </section>
+    <form
+      onSubmit={handleSubmit}
+      className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+        {/* Left Section */}
+        <div className="lg:col-span-2 bg-white shadow-2xl rounded-3xl p-8 space-y-10 border border-gray-100">
+          {/* Contact */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Contact Information</h2>
+            <div className="space-y-4">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email or mobile phone number"
+                className={`${inputStyle} focus:shadow-md`}
+                required
+              />
+              <label className="inline-flex items-center gap-3 text-sm text-gray-600 hover:text-gray-800 cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="newsletter"
+                  className="w-4 h-4 accent-orange-500 rounded border-gray-300"
+                />
+                Email me with news and offers
+              </label>
+            </div>
+          </section>
 
-            {/* Shipping Information */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Shipping Address
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    First name
-                  </label>
-                  <input type="text" className={`${inputStyle}`} />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Last name
-                  </label>
-                  <input type="text" className={`${inputStyle}`} />
-                </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    className={`${inputStyle}`}
-                    placeholder="Street address"
-                  />
-                </div>
-                <div className="md:col-span-2">
-                  <input
-                    type="text"
-                    className={`${inputStyle}`}
-                    placeholder="Apt, suite, etc. (optional)"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    City
-                  </label>
-                  <input type="text" className={`${inputStyle}`} />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Country
-                  </label>
-                  <select className={`${inputStyle}`}>
-                    <option>United States</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    State
-                  </label>
-                  <input type="text" className={`${inputStyle}`} />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    ZIP code
-                  </label>
-                  <input type="text" className={`${inputStyle}`} />
-                </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    className={`${inputStyle}`}
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-              </div>
-            </section>
+          {/* Delivery */}
+          {/* Delivery */}
+<section className="space-y-6">
+  <h2 className="text-2xl font-bold text-gray-800 mb-2">Delivery Address</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <select 
+      name="country" 
+      className={`${inputStyle} cursor-pointer md:col-span-2`}
+    >
+      <option value="Pakistan">Pakistan</option>
+    </select>
 
-            {/* Delivery Method */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Delivery Method
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label className="delivery-option">
-                  <input
-                    type="radio"
-                    name="delivery"
-                    className="sr-only"
-                    defaultChecked
-                  />
-                  <div className="p-4 border-2 border-gray-400 rounded-xl hover:border-[#e86e09] transition-colors">
-                    <span className="block font-medium text-gray-900">
-                      Standard Shipping
-                    </span>
-                    <span className="block text-sm text-gray-500 mt-1">
-                      4–10 business days
-                    </span>
-                    <span className="block font-medium text-gray-900 mt-2">
-                      $5.00
-                    </span>
-                  </div>
-                </label>
-                <label className="delivery-option">
-                  <input type="radio" name="delivery" className="sr-only" />
-                  <div className="p-4 border-2 border-gray-400 rounded-xl hover:border-[#e86e09] transition-colors">
-                    <span className="block font-medium text-gray-900">
-                      Express Shipping
-                    </span>
-                    <span className="block text-sm text-gray-500 mt-1">
-                      2–5 business days
-                    </span>
-                    <span className="block font-medium text-gray-900 mt-2">
-                      $16.00
-                    </span>
-                  </div>
-                </label>
-              </div>
-            </section>
+    {/* First Name & Last Name in same line */}
+    <input
+      name="firstName"
+      placeholder="First name"
+      className={inputStyle}
+      required
+    />
+    <input
+      name="lastName"
+      placeholder="Last name"
+      className={inputStyle}
+      required
+    />
 
-            {/* Payment */}
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Payment Details
-              </h2>
-              <div className="space-y-6">
-                <div className="flex gap-6 border-b pb-4">
-                  <label className="payment-method">
-                    <input
-                      type="radio"
-                      name="payment"
-                      className="sr-only"
-                      defaultChecked
-                    />
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400">
-                      <span>💳</span> Credit Card
-                    </div>
-                  </label>
-                  <label className="payment-method">
-                    <input type="radio" name="payment" className="sr-only" />
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-400">
-                      <span>🔵</span> PayPal
-                    </div>
-                  </label>
-                </div>
+    {/* Address fields full width */}
+    <input
+      name="address"
+      placeholder="Address"
+      className={`${inputStyle} md:col-span-2`}
+      required
+    />
+    <input
+      name="apartment"
+      placeholder="Apartment, suite, etc. (optional)"
+      className={`${inputStyle} md:col-span-2`}
+    />
 
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Card number
-                    </label>
-                    <input
-                      type="text"
-                      className={`${inputStyle}`}
-                      placeholder="0000 0000 0000 0000"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Name on card
-                    </label>
-                    <input
-                      type="text"
-                      className={`${inputStyle}`}
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Expiration date
-                      </label>
-                      <input
-                        type="text"
-                        className={`${inputStyle}`}
-                        placeholder="MM/YY"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        CVC
-                      </label>
-                      <input
-                        type="text"
-                        className={`${inputStyle}`}
-                        placeholder="123"
-                      />
-                    </div>
-                  </div>
-                </div>
+    {/* City & Postal Code in same line */}
+    <input
+      name="city"
+      placeholder="City"
+      className={inputStyle}
+      required
+    />
+    <input
+      name="postalCode"
+      placeholder="Postal code (optional)"
+      className={inputStyle}
+    />
+
+    {/* Phone full width */}
+    <input
+      name="phone"
+      placeholder="Phone"
+      className={`${inputStyle} md:col-span-2`}
+      required
+    />
+  </div>
+  {/* Checkboxes remain unchanged */}
+  <div className="mt-4 flex flex-col gap-3 text-sm text-gray-600">
+    <label className="inline-flex items-center gap-3 hover:text-gray-800 cursor-pointer">
+      <input
+        type="checkbox"
+        name="saveInfo"
+        className="w-4 h-4 accent-orange-500 rounded border-gray-300"
+      />
+      Save this information for next time
+    </label>
+    <label className="inline-flex items-center gap-3 hover:text-gray-800 cursor-pointer">
+      <input
+        type="checkbox"
+        name="textUpdates"
+        className="w-4 h-4 accent-orange-500 rounded border-gray-300"
+      />
+      Text me with news and offers
+    </label>
+  </div>
+</section>
+          {/* Shipping Method */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Shipping Method</h2>
+            <div className="p-5 border-2 border-orange-100 bg-orange-50 rounded-xl text-sm font-medium text-gray-700">
+              Standard Shipping — <strong className="text-green-600 ml-1">FREE</strong>
+            </div>
+          </section>
+
+          {/* Payment */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Payment Details</h2>
+            <p className="text-sm text-gray-600 mb-6">
+              🔒 All transactions are secure and encrypted with 256-bit SSL protection
+            </p>
+            <div className="space-y-5">
+              <label className="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-xl hover:border-orange-300 cursor-pointer">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="cod"
+                  className="w-5 h-5 accent-orange-500"
+                />
+                <span className="font-medium">Cash on Delivery (COD)</span>
+              </label>
+              <label className="flex items-center gap-4 p-4 border-2 border-orange-300 bg-orange-50 rounded-xl cursor-pointer">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="card"
+                  defaultChecked
+                  className="w-5 h-5 accent-orange-500"
+                />
+                <span className="font-medium">Debit - Credit Card</span>
+              </label>
+              <div className="text-sm text-gray-500 ml-6 mb-4">
+                After clicking "Pay now", you will be redirected to complete your
+                purchase securely.
               </div>
-            </section>
+              <label className="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-xl hover:border-orange-300 cursor-pointer">
+                <input
+                  type="radio"
+                  name="payment"
+                  value="bank"
+                  className="w-5 h-5 accent-orange-500"
+                />
+                <span className="font-medium">Bank Deposit</span>
+              </label>
+            </div>
+          </section>
+
+          {/* Billing Address */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Billing Address</h2>
+            <div className="space-y-3">
+              <label className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                <input
+                  type="radio"
+                  name="billingAddress"
+                  value="same"
+                  defaultChecked
+                  className="w-5 h-5 accent-orange-500"
+                />
+                Same as shipping address
+              </label>
+              <label className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
+                <input
+                  type="radio"
+                  name="billingAddress"
+                  value="different"
+                  className="w-5 h-5 accent-orange-500"
+                />
+                Use a different billing address
+              </label>
+            </div>
+          </section>
+        </div>
+
+        {/* Right Section - Order Summary */}
+        <div className="bg-white shadow-2xl rounded-3xl p-8 h-fit sticky top-8 border border-gray-100">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Order Summary</h2>
+          <div className="flex items-center gap-4 mb-6">
+            <img
+              src="https://cdn.pixabay.com/photo/2020/05/17/18/03/slippers-5181650_960_720.jpg"
+              alt="Peshawari Chappal"
+              className="w-24 h-24 object-cover rounded-lg border-2 border-gray-100"
+            />
+            <div className="flex-1">
+              <p className="font-medium text-gray-800">Peshawari Chappal - ZXP 10158</p>
+              <p className="text-sm text-gray-600 mt-1">Size: 39/6</p>
+              <p className="font-medium mt-2 text-orange-600">Rs. 11,900.00</p>
+            </div>
           </div>
 
-          {/* Right Column - Order Summary */}
-          <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 h-fit sticky top-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
-              Order Summary
-            </h2>
-
-            <div className="space-y-6">
-              {[1, 2].map((item) => (
-                <div key={item} className="flex gap-4">
-                  <div
-                    style={{
-                      backgroundImage: `url("https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-02.jpg")`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                    className="w-20 h-24 bg-gray-200 border border-gray-300 rounded-lg flex-shrink-0"
-                  />
-                  <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">Basic Tee</h3>
-                    <p className="text-sm text-gray-600 mt-1">Black - Large</p>
-                    <p className="text-sm font-medium text-gray-900 mt-2">
-                      $32.00
-                    </p>
-                  </div>
-                  <select className="h-fit border-gray-300 rounded-md text-sm px-2 py-1">
-                    {[1, 2, 3].map((q) => (
-                      <option key={q}>{q}</option>
-                    ))}
-                  </select>
-                </div>
-              ))}
+          <div className="text-sm space-y-3 mb-6">
+            <div className="flex justify-between text-gray-600">
+              <span>Subtotal</span>
+              <span>Rs. 11,900.00</span>
             </div>
-
-            <div className="mt-8 space-y-4">
-              <div className="flex justify-between">
-                <span className="text-gray-600">Subtotal</span>
-                <span className="font-medium text-gray-900">$64.00</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Shipping</span>
-                <span className="font-medium text-gray-900">$5.00</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Taxes</span>
-                <span className="font-medium text-gray-900">$6.52</span>
-              </div>
-              <div className="flex justify-between pt-4 border-t border-gray-200">
-                <span className="text-lg font-bold text-gray-900">Total</span>
-                <span className="text-lg font-bold text-gray-900">$75.52</span>
-              </div>
+            <div className="flex justify-between text-gray-600">
+              <span>Shipping</span>
+              <span className="text-green-600 font-medium">FREE</span>
             </div>
-
-            <button className="w-full mt-8 bg-[#e86e09] hover:bg-[#e86e09] text-white py-3 rounded-xl font-medium transition-colors shadow-sm hover:shadow-md">
-              Confirm Order
-            </button>
           </div>
+
+          <div className="flex justify-between font-bold text-lg mb-6 pt-6 border-t-2 border-gray-100">
+            <span className="text-gray-800">Total</span>
+            <span className="text-orange-600">PKR Rs. 11,900.00</span>
+          </div>
+
+          <p className="text-sm text-gray-600 mb-6">
+            🚚 Free Shipping Nationwide — Plus, enjoy a 15-day easy return policy!
+          </p>
+
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white py-4 rounded-xl font-semibold shadow-lg hover:shadow-orange-200 transition-all duration-300"
+          >
+            Pay Now ➔
+          </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
-// Utility classes
 const inputStyle =
-  "w-full px-4 py-3 border border-gray-300 outline-none rounded-lg focus:ring-2 focus:ring-[#e86e09] focus:border-[#e86e09] transition-all text-sm";
+  "w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-300 outline-none text-sm transition-all duration-200 placeholder-gray-400 hover:border-gray-300";
