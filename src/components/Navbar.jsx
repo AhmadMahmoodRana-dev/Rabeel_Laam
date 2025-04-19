@@ -49,50 +49,53 @@ const Navbar = () => {
             <Link to={"/"} className="hover:text-blue-600">
               HOME
             </Link>
-            <a href="#" className="hover:text-blue-600">
+            <Link to={"/"} className="hover:text-blue-600">
               NEW ARRIVALS
-            </a>
+            </Link>
 
             {/* MEN */}
-            <div className="relative group pb-2"> {/* Added pb-2 */}
-  <button className="flex items-center hover:text-blue-600">
-    MEN <ChevronDownIcon className="w-4 h-4 ml-1" />
-  </button>
-  {/* Changed mt-2 to top-full */}
-  <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-      Summer Loafers
-    </a>
-    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-      White Sole Loafers
-    </a>
-  </div>
-</div>
+            <div className="relative group pb-2">
+              {/* Added pb-2 */}
+              <button className="flex items-center hover:text-blue-600">
+                MEN <ChevronDownIcon className="w-4 h-4 ml-1" />
+              </button>
+              {/* Changed mt-2 to top-full */}
+              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
+                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
+                  Summer Loafers
+                </Link>
+                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                  White Sole Loafers
+                </Link>
+              </div>
+            </div>
 
-<div className="relative group pb-2"> {/* Added pb-2 */}
-  <button className="flex items-center text-red-600">
-    SALE <ChevronDownIcon className="w-4 h-4 ml-1" />
-  </button>
-  {/* Changed mt-2 to top-full */}
-  <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-      Sale Item 1
-    </a>
-    <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-      Sale Item 2
-    </a>
-  </div>
-</div>
+            <div className="relative group pb-2">
+              {" "}
+              {/* Added pb-2 */}
+              <button className="flex items-center text-red-600">
+                SALE <ChevronDownIcon className="w-4 h-4 ml-1" />
+              </button>
+              {/* Changed mt-2 to top-full */}
+              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
+                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                  Sale Item 1
+                </Link>
+                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                  Sale Item 2
+                </Link>
+              </div>
+            </div>
 
-            <a href="#" className="hover:text-blue-600">
-              SHOE CARE
-            </a>
-            <a href="#" className="hover:text-blue-600">
+            <Link to={'/customer-policy'} className="hover:text-blue-600">
+              CUSTOMER POLICY
+            </Link>
+            <Link to={'/contactUS'} className="hover:text-blue-600">
               CONTACT US
-            </a>
-            <a href="#" className="hover:text-blue-600">
+            </Link>
+            <Link to={'/'} className="hover:text-blue-600">
               TRACK YOUR ORDER
-            </a>
+            </Link>
           </div>
 
           {/* Icons */}

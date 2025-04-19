@@ -1,11 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import TrendingProducts from "../components/Home/TrendingProducts";
-import ProductDetail from "../components/ProductDetail";
 
 const CategoryPage = () => {
   const { name } = useParams();
-  console.log(name);
   return (
     <>
 
@@ -18,7 +16,6 @@ const CategoryPage = () => {
         <TrendingProducts show={false}/>
       </div>
     </div>
-    <ProductDetail/>
 
     </>
   );

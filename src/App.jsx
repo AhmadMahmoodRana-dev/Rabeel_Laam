@@ -6,6 +6,7 @@ import CustomerPolicy from "./pages/CustomerPolicy";
 import ContactUs from "./pages/ContactUs";
 import CheckoutForm from "./pages/CheckoutForm";
 import CategoryPage from "./pages/CategoryPage";
+import ProductDetail from "./pages/ProductDetail";
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/customer-policy" element={<CustomerPolicy/>} />
         <Route path="/contactUS" element={<ContactUs/>} />
         <Route path="/checkout" element={<CheckoutForm/>} />
+        <Route path="/productDetail/:id" element={<ProductDetail/>} />
         <Route path="/category/:name" element={<CategoryPage/>} />
       </Route>
     </Routes>

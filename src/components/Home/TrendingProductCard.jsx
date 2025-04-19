@@ -1,18 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { IoBagAddOutline } from "react-icons/io5";
-import { Context } from "../../Context/Context";
+import { Link } from "react-router-dom";
 
 const TrendingProductCard = ({ product }) => {
-  const { openProductDetail, setOpenProductDetail, setSelectedProduct } =useContext(Context);
-  const handleOpenDetail = () => {
-    setSelectedProduct(product);
-    setOpenProductDetail(!openProductDetail);
-  };
+ 
 
   return (
-    <div
-      onClick={() => handleOpenDetail()}
+    <Link
+    to={`/productDetail/${product.id}`}
       key={product.id}
       className="min-w-[200px] cursor-pointer bg-white rounded-lg shadow hover:shadow-md transition duration-200 relative"
     >
@@ -31,7 +27,6 @@ const TrendingProductCard = ({ product }) => {
           <FaRegHeart />
         </button>
         <button
-          onClick={() => handleOpenDetail()}
           className="bg-white p-3 hover:bg-[#e86e09] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1"
         >
           <IoBagAddOutline />
@@ -55,7 +50,7 @@ const TrendingProductCard = ({ product }) => {
           </span>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 

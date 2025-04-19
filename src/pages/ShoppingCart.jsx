@@ -34,7 +34,10 @@ export default function ShoppingCart() {
   const onCheckOut = () =>{
     setOpenCart(!openCart)
     navigate('/checkout')
-
+  }
+  const onContinueShoping = () =>{
+    setOpenCart(!openCart)
+    navigate('/')
   }
 
   return (
@@ -123,8 +126,9 @@ export default function ShoppingCart() {
                     <p>
                       or{' '}
                       <button
+                      onClick={() => onContinueShoping()}
                         type="button"
-                        onClick={() => onCheckOut()}
+                        
                         className="font-medium text-[#e86e09] hover:text-[#e86e09]"
                       >
                         Continue Shopping
