@@ -57,14 +57,59 @@ const Navbar = () => {
             <div className="relative group pb-2">
               {/* Added pb-2 */}
               <button className="flex items-center hover:text-blue-600">
-                MEN <ChevronDownIcon className="w-4 h-4 ml-1" />
+                WOMEN <ChevronDownIcon className="w-4 h-4 ml-1" />
+              </button>
+              {/* Changed mt-2 to top-full */}
+              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
+                <Link
+                  to={"/category/Lawn%20'25"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Lawn '25
+                </Link>
+                <Link
+                  to={"/category/Day%20to%20Day%20Summer"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Day to Day Summer1
+                </Link>
+                <Link
+                  to={"/category/1%20Piece"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  1 Piece
+                </Link>
+                <Link
+                  to={"/category/2%20Piece"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  2 Piece
+                </Link>
+                <Link
+                  to={"/category/3%20Piece"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  3 Piece
+                </Link>
+                <Link
+                  to={"/category/Unstitched%20Bottoms"}
+                  className="block px-4 py-2 hover:bg-gray-100"
+                >
+                  Unstitched Bottoms
+                </Link>
+              </div>
+            </div>
+            <div className="relative group pb-2">
+              {/* Added pb-2 */}
+              <button className="flex items-center hover:text-blue-600">
+                TOWELS <ChevronDownIcon className="w-4 h-4 ml-1" />
               </button>
               {/* Changed mt-2 to top-full */}
               <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
                 <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
                   Summer Loafers
                 </Link>
-                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
                   White Sole Loafers
                 </Link>
               </div>
@@ -74,27 +119,24 @@ const Navbar = () => {
               {" "}
               {/* Added pb-2 */}
               <button className="flex items-center text-red-600">
-                SALE <ChevronDownIcon className="w-4 h-4 ml-1" />
+                BED SHEETS <ChevronDownIcon className="w-4 h-4 ml-1" />
               </button>
               {/* Changed mt-2 to top-full */}
               <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
                   Sale Item 1
                 </Link>
-                <Link to={'/'} className="block px-4 py-2 hover:bg-gray-100">
+                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
                   Sale Item 2
                 </Link>
               </div>
             </div>
 
-            <Link to={'/customer-policy'} className="hover:text-blue-600">
+            <Link to={"/customer-policy"} className="hover:text-blue-600">
               CUSTOMER POLICY
             </Link>
-            <Link to={'/contactUS'} className="hover:text-blue-600">
+            <Link to={"/contactUS"} className="hover:text-blue-600">
               CONTACT US
-            </Link>
-            <Link to={'/'} className="hover:text-blue-600">
-              TRACK YOUR ORDER
             </Link>
           </div>
 
@@ -169,7 +211,7 @@ const Navbar = () => {
                   className="w-full flex justify-between items-center py-3 hover:text-blue-600"
                   onClick={() => setIsMenMobileOpen(!isMenMobileOpen)}
                 >
-                  MEN{" "}
+                  WOMEN{" "}
                   <ChevronDownIcon
                     className={`w-4 h-4 ml-1 transition-transform ${
                       isMenMobileOpen ? "rotate-180" : ""
@@ -178,20 +220,42 @@ const Navbar = () => {
                 </button>
                 {isMenMobileOpen && (
                   <div className="pl-4 pb-2">
-                    <a
-                      href="#"
+                    <Link
+                      to={"/category/Lawn%20'25"}
                       className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
                     >
-                      Summer Loafers
-                    </a>
-                    <a
-                      href="#"
+                      Lawn '25
+                    </Link>
+                    <Link
+                      to={"/category/Day%20to%20Day%20Summer"}
                       className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
                     >
-                      White Sole Loafers
-                    </a>
+                      Day to Day Summer1
+                    </Link>
+                    <Link
+                      to={"/category/1%20Piece"}
+                      className="block py-2 hover:text-blue-600"
+                    >
+                      1 Piece
+                    </Link>
+                    <Link
+                      to={"/category/2%20Piece"}
+                      className="block py-2 hover:text-blue-600"
+                    >
+                      2 Piece
+                    </Link>
+                    <Link
+                      to={"/category/3%20Piece"}
+                      className="block py-2 hover:text-blue-600"
+                    >
+                      3 Piece
+                    </Link>
+                    <Link
+                      to={"/category/Unstitched%20Bottoms"}
+                      className="block py-2 hover:text-blue-600"
+                    >
+                      Unstitched Bottoms
+                    </Link>
                   </div>
                 )}
               </div>
@@ -202,7 +266,39 @@ const Navbar = () => {
                   className="w-full flex justify-between items-center py-3 text-red-600"
                   onClick={() => setIsSaleMobileOpen(!isSaleMobileOpen)}
                 >
-                  SALE{" "}
+                  BED SHEETS
+                  <ChevronDownIcon
+                    className={`w-4 h-4 ml-1 transition-transform ${
+                      isSaleMobileOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {isSaleMobileOpen && (
+                  <div className="pl-4 pb-2">
+                    <a
+                      href="#"
+                      className="block py-2 hover:text-blue-600"
+                      onClick={closeAllDropdowns}
+                    >
+                      Sale Item 1
+                    </a>
+                    <a
+                      href="#"
+                      className="block py-2 hover:text-blue-600"
+                      onClick={closeAllDropdowns}
+                    >
+                      Sale Item 2
+                    </a>
+                  </div>
+                )}
+              </div>
+              {/* SALE */}
+              <div className="border-b">
+                <button
+                  className="w-full flex justify-between items-center py-3 text-red-600"
+                  onClick={() => setIsSaleMobileOpen(!isSaleMobileOpen)}
+                >
+                  TOWELS
                   <ChevronDownIcon
                     className={`w-4 h-4 ml-1 transition-transform ${
                       isSaleMobileOpen ? "rotate-180" : ""
@@ -229,13 +325,6 @@ const Navbar = () => {
                 )}
               </div>
 
-              <a
-                href="#"
-                className="block py-3 hover:text-blue-600"
-                onClick={closeAllDropdowns}
-              >
-                SHOE CARE
-              </a>
               <a
                 href="#"
                 className="block py-3 hover:text-blue-600"
