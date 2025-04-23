@@ -79,7 +79,7 @@ const Home = () => {
         {/* <LargeCardSlider heading={"Buy Menswear"} products={products} /> */}
         {/* <LargeCardSlider heading={"Shop Kidswear"} products={products} /> */}
         {/* <HomePageCategorySlider /> */}
-        <LargeCardSlider heading={"Shop Accessories"} products={products} />
+        {/* <LargeCardSlider heading={"Shop Accessories"} products={products} /> */}
         <HomePageGridStructure heading={"SUMMER LAWN '25"} />
         <TrendingProducts />
         {/* <OneTimeShowModel /> */}
