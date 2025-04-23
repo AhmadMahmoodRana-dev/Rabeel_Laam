@@ -38,9 +38,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Zeeki Logo" className="h-14" />
+            <img src={logo} alt="Zeeki Logo" className="h-18" />
             <span className="text-xl font-serif tracking-wide font-medium">
-              ZEEKI
+              HENZA
             </span>
           </div>
 

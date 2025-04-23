@@ -73,12 +73,12 @@ const Home = () => {
         <HomePageMainCarousel />
         <HomePageCategorySlider heading={"UNSTITCHED"} />
         <HomePageGridStructure heading={"Shop Luxury Picks"} />
-        <HomePageGridStructure heading={"Buy Festive Glam"} />
-        <HomePageGridStructure heading={"Shop Daily Pret"} />
-        <BrandCardGrid />
-        <LargeCardSlider heading={"Buy Menswear"} products={products} />
-        <LargeCardSlider heading={"Shop Kidswear"} products={products} />
-        <HomePageCategorySlider />
+        {/* <HomePageGridStructure heading={"Buy Festive Glam"} /> */}
+        {/* <HomePageGridStructure heading={"Shop Daily Pret"} /> */}
+        {/* <BrandCardGrid /> */}
+        {/* <LargeCardSlider heading={"Buy Menswear"} products={products} /> */}
+        {/* <LargeCardSlider heading={"Shop Kidswear"} products={products} /> */}
+        {/* <HomePageCategorySlider /> */}
         <LargeCardSlider heading={"Shop Accessories"} products={products} />
         <HomePageGridStructure heading={"SUMMER LAWN '25"} />
         <TrendingProducts />
