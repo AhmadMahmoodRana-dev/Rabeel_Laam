@@ -19,7 +19,7 @@ const TrendingProductCard = ({ product }) => {
           className="rounded-t-lg h-96 w-full object-cover"
         />
         {product.discount && (
-          <span className="absolute top-2 left-2 bg-[#e86e09] text-white text-sm px-2 py-1 rounded">
+          <span className="absolute top-2 left-2 bg-[#075686] text-white text-sm px-2 py-1 rounded">
             -{product.discount}%
           </span>
         )}
@@ -27,14 +27,14 @@ const TrendingProductCard = ({ product }) => {
           <FaRegHeart />
         </button>
         <button
-          className="bg-white p-3 hover:bg-[#e86e09] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1"
+          className="bg-white p-3 hover:bg-[#075686] hover:text-white transition-all ease-in-out duration-1000 cursor-pointer rounded-full absolute bottom-2 right-1"
         >
           <IoBagAddOutline />
         </button>
       </div>
 
       <div className="p-4">
-        <p className="text-lg text-[#e86e09] font-semibold">
+        <p className="text-lg text-[#075686] font-semibold">
           PKR {product.price.toLocaleString()}
         </p>
         {product.originalPrice && (

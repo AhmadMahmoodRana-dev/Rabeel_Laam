@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#e86e09] text-white py-12 mt-24">
+    <footer className="bg-[#075686] text-white py-12 mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact Information */}
@@ -155,8 +155,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-white mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white mt-8">
+          {/* <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm">
               &copy; {new Date().getFullYear()} ZEEKI & MERCHANTS. All rights
               reserved.
@@ -181,7 +181,7 @@ const Footer = () => {
                 Cookie Settings
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

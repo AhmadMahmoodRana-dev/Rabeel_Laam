@@ -94,7 +94,7 @@ export default function ShoppingCart() {
                                 <p className="text-gray-500">Qty {product.quantity}</p>
 
                                 <div className="flex">
-                                  <button type="button" className="font-medium text-[#e86e09] hover:text-[#e86e09]">
+                                  <button type="button" className="font-medium text-red-400 hover:text-red-500">
                                     Remove
                                   </button>
                                 </div>
@@ -117,7 +117,7 @@ export default function ShoppingCart() {
                     <a
                     onClick={() => onCheckOut()}
                       href="#"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-[#e86e09] px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-[#e86d09ea]"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-[#075686] px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-[#075686]"
                     >
                       Checkout
                     </a>
@@ -129,7 +129,7 @@ export default function ShoppingCart() {
                       onClick={() => onContinueShoping()}
                         type="button"
                         
-                        className="font-medium text-[#e86e09] hover:text-[#e86e09]"
+                        className="font-medium text-red-400 hover:text-red-500"
                       >
                         Continue Shopping
                         <span aria-hidden="true"> &rarr;</span>

@@ -11,6 +11,7 @@ import image4 from "../assets/unstiched (4).png";
 import detailPage from "../assets/detailImage.png"
 import { Link } from "react-router-dom";
 import { Context } from "../Context/Context";
+import Footer from "../components/Footer/Footer";
 
 const ProductDetail = () => {
   const [size, setSize] = useState("39/6");
@@ -23,6 +24,8 @@ const ProductDetail = () => {
   const sizes = ["39/6", "40/7", "41/8", "42/9", "43/10", "44/11", "45/12"];
 
   return (
+    <>
+
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
       {/* Product Images */}
       <div className="space-y-6">
@@ -77,7 +80,7 @@ const ProductDetail = () => {
                 onClick={() => setSize(s)}
                 className={`p-3 text-center rounded-xl border-2 font-medium transition-all ${
                   size === s
-                    ? "border-black bg-black text-white"
+                    ? "border-[#dd211f] bg-[#dd211f] text-white"
                     : "border-gray-200 hover:border-gray-400 bg-white text-gray-800"
                 }`}
               >
@@ -118,7 +121,7 @@ const ProductDetail = () => {
           <button onClick={() => setOpenCart(!openCart)} className="flex-1 md:h-14 py-3 text-lg rounded-xl text-white bg-gray-900 hover:bg-gray-800">
             Add to Cart
           </button>
-          <Link to={'/checkout'} className="flex-1 text-center md:h-14 py-3 text-lg rounded-xl text-white bg-amber-600 hover:bg-amber-700">
+          <Link to={'/checkout'} className="flex-1 text-center md:h-14 py-3 text-lg rounded-xl text-white bg-[#075686] hover:bg-[#4c6f83]">
             Buy it Now
           </Link>
         </div>
@@ -141,6 +144,8 @@ const ProductDetail = () => {
         <img className="w-full" src={detailPage} />
       </div>
     </div>
+      <Footer/>
+    </>
   );
 };
 

@@ -263,6 +263,7 @@
 
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import Footer from "../components/Footer/Footer";
 
 export default function CustomerPolicy() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -298,6 +299,7 @@ export default function CustomerPolicy() {
   );
 
   return (
+    <>
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
@@ -314,7 +316,7 @@ export default function CustomerPolicy() {
           <div className="space-y-4">
             <SectionHeading>Frequently Asked Questions</SectionHeading>
             {faqItems.map((item, index) => (
-              <div key={index} className="border rounded-lg overflow-hidden">
+              <div key={index} className="border border-[#075686] rounded-lg overflow-hidden">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="flex justify-between items-center w-full p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
@@ -329,7 +331,7 @@ export default function CustomerPolicy() {
                   />
                 </button>
                 {activeIndex === index && (
-                  <div className="p-4 bg-white border-t">
+                  <div className="p-4 bg-white border-t border-[#075686]">
                     <p className="text-gray-600">{item.answer}</p>
                   </div>
                 )}
@@ -485,5 +487,7 @@ export default function CustomerPolicy() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
