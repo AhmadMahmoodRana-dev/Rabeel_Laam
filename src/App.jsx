@@ -7,11 +7,13 @@ import ContactUs from "./pages/ContactUs";
 import CheckoutForm from "./pages/CheckoutForm";
 import CategoryPage from "./pages/CategoryPage";
 import ProductDetail from "./pages/ProductDetail";
+import ScrollToHash from "./components/ScrollToHash";
 
 
 export default function App() {
   return (
     <div>
+    <ScrollToHash/>
     <Routes>
       <Route element={<PublicRoutes />}>
         <Route path="/login" element={<h1>Login</h1>} />
