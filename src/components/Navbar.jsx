@@ -38,7 +38,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="Zeeki Logo" className="h-20" />
+            <img src={logo} alt="Zeeki Logo" className="mt-3 h-28" />
           </div>
 
           {/* Desktop Menu Items */}

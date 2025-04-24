@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Footer from "../components/Footer/Footer";
 
 export default function CheckoutForm() {
-  const [selectedPayment, setSelectedPayment] = useState("card"); // State to track selected payment
+  const [selectedPayment, setSelectedPayment] = useState("cod"); // State to track selected payment
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -9,6 +10,8 @@ export default function CheckoutForm() {
   };
 
   return (
+    <>
+
     <form
       onSubmit={handleSubmit}
       className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8"
@@ -154,6 +157,7 @@ export default function CheckoutForm() {
                   type="radio"
                   name="payment"
                   value="cod"
+                  defaultChecked
                   className="w-5 h-5 accent-[#075686]"
                   onChange={(e) => setSelectedPayment(e.target.value)}
                 />
@@ -174,7 +178,6 @@ export default function CheckoutForm() {
                   value="card"
                   className="w-5 h-5 accent-[#075686]"
                   onChange={(e) => setSelectedPayment(e.target.value)}
-                  defaultChecked
                 />
                 <span className="font-medium">Debit - Credit Card</span>
               </label>
@@ -305,6 +308,8 @@ export default function CheckoutForm() {
         </div>
       </div>
     </form>
+    <Footer/>
+    </>
   );
 }
 

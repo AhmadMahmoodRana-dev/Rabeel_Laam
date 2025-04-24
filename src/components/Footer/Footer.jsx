@@ -21,7 +21,7 @@ const Footer = () => {
                 Monday-Saturday: 10AM - 6PM
               </p>
               <div className="space-y-1">
-                <a
+                <a  
                   href="tel:+923157418509"
                   className="block text-sm hover:text-white transition-colors"
                 >
@@ -156,32 +156,13 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="border-t border-white mt-8">
-          {/* <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} ZEEKI & MERCHANTS. All rights
+              &copy; {new Date().getFullYear()} Henza. All rights
               reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="/privacy"
-                className="text-sm hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className="text-sm hover:text-white transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="/cookies"
-                className="text-sm hover:text-white transition-colors"
-              >
-                Cookie Settings
-              </a>
-            </div>
-          </div> */}
+            
+          </div>
         </div>
       </div>
     </footer>
