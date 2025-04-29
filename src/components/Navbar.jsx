@@ -7,8 +7,6 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isMenOpen, setIsMenOpen] = useState(false);
-  const [isSaleOpen, setIsSaleOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMenMobileOpen, setIsMenMobileOpen] = useState(false);
   const [isSaleMobileOpen, setIsSaleMobileOpen] = useState(false);
@@ -25,12 +23,125 @@ const Navbar = () => {
   }, []);
 
   const closeAllDropdowns = () => {
-    setIsMenOpen(false);
-    setIsSaleOpen(false);
     setIsMobileMenuOpen(false);
     setIsMenMobileOpen(false);
     setIsSaleMobileOpen(false);
   };
+
+  const DropdownContent = ({ items }) => (
+    <div className="absolute top-full left-0 bg-white shadow-lg p-6 z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 xl:w-[700px] lg:w-[500px] md:w-[390px] rounded">
+      <div className="grid grid-cols-4 gap-6">
+        {items.map((section, index) => (
+          <div key={index}>
+            <h4 className="font-bold mb-2">{section.title}</h4>
+            {section.links.map((link, linkIndex) => (
+              <Link
+                key={linkIndex}
+                to={link.to}
+                className="block mb-1 hover:text-blue-600"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const womenItems = [
+    {
+      title: "SHOP BY CATEGORY",
+      links: [
+        { to: "/category/Everyday", label: "Everyday Wear" },
+        { to: "/category/Luxury", label: "Luxury Wear" }
+      ]
+    },
+    {
+      title: "SHOP BY TYPE",
+      links: [
+        { to: "/category/Embroidered", label: "Embroidered" },
+        { to: "/category/Printed", label: "Printed" }
+      ]
+    },
+    {
+      title: "SHOP BY PCS",
+      links: [
+        { to: "/category/2%20Piece", label: "2 Pc" },
+        { to: "/category/3%20Piece", label: "3 Pc" }
+      ]
+    },
+    {
+      title: "SHOP BY FABRIC",
+      links: [
+        { to: "/category/Lawn", label: "Lawn" },
+        { to: "/category/Cambric", label: "Cambric" },
+        { to: "/category/Khaddar", label: "Khaddar" }
+      ]
+    }
+  ];
+
+  const towelsItems = [
+    {
+      title: "SHOP BY TYPE",
+      links: [
+        { to: "/category/Summer", label: "Summer Towels" },
+        { to: "/category/Beach", label: "Beach Towels" }
+      ]
+    },
+    {
+      title: "SHOP BY SIZE",
+      links: [
+        { to: "/size/Large", label: "Large" },
+        { to: "/size/Medium", label: "Medium" }
+      ]
+    },
+    {
+      title: "SHOP BY MATERIAL",
+      links: [
+        { to: "/material/Cotton", label: "Cotton" },
+        { to: "/material/Microfiber", label: "Microfiber" }
+      ]
+    },
+    {
+      title: "SHOP BY DESIGN",
+      links: [
+        { to: "/design/Printed", label: "Printed" },
+        { to: "/design/Plain", label: "Plain" }
+      ]
+    }
+  ];
+
+  const bedSheetsItems = [
+    {
+      title: "SHOP BY SIZE",
+      links: [
+        { to: "/size/King", label: "King Size" },
+        { to: "/size/Queen", label: "Queen Size" }
+      ]
+    },
+    {
+      title: "SHOP BY MATERIAL",
+      links: [
+        { to: "/material/Cotton", label: "Cotton" },
+        { to: "/material/Silk", label: "Silk" }
+      ]
+    },
+    {
+      title: "SHOP BY DESIGN",
+      links: [
+        { to: "/design/Printed", label: "Printed" },
+        { to: "/design/Plain", label: "Plain" }
+      ]
+    },
+    {
+      title: "SHOP BY COLLECTION",
+      links: [
+        { to: "/collection/Summer", label: "Summer Collection" },
+        { to: "/collection/Winter", label: "Winter Collection" }
+      ]
+    }
+  ];
 
   return (
     <nav className="bg-white shadow-sm text-sm mt-6 relative">
@@ -50,83 +161,28 @@ const Navbar = () => {
               NEW ARRIVALS
             </Link>
 
-            {/* MEN */}
+            {/* Women Dropdown */}
             <div className="relative group pb-2">
-              {/* Added pb-2 */}
               <button className="flex items-center hover:text-blue-600">
                 WOMEN <ChevronDownIcon className="w-4 h-4 ml-1" />
               </button>
-              {/* Changed mt-2 to top-full */}
-              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-                <Link
-                  to={"/category/Lawn%20'25"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Lawn '25
-                </Link>
-                <Link
-                  to={"/category/Day%20to%20Day%20Summer"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Day to Day Summer1
-                </Link>
-                <Link
-                  to={"/category/1%20Piece"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  1 Piece
-                </Link>
-                <Link
-                  to={"/category/2%20Piece"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  2 Piece
-                </Link>
-                <Link
-                  to={"/category/3%20Piece"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  3 Piece
-                </Link>
-                <Link
-                  to={"/category/Unstitched%20Bottoms"}
-                  className="block px-4 py-2 hover:bg-gray-100"
-                >
-                  Unstitched Bottoms
-                </Link>
-              </div>
+              <DropdownContent items={womenItems} />
             </div>
+
+            {/* Towels Dropdown */}
             <div className="relative group pb-2">
-              {/* Added pb-2 */}
               <button className="flex items-center hover:text-blue-600">
                 TOWELS <ChevronDownIcon className="w-4 h-4 ml-1" />
               </button>
-              {/* Changed mt-2 to top-full */}
-              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
-                  Summer Loafers
-                </Link>
-                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
-                  White Sole Loafers
-                </Link>
-              </div>
+              <DropdownContent items={towelsItems} />
             </div>
 
+            {/* Bed Sheets Dropdown */}
             <div className="relative group pb-2">
-              {" "}
-              {/* Added pb-2 */}
               <button className="flex items-center text-red-600">
                 BED SHEETS <ChevronDownIcon className="w-4 h-4 ml-1" />
               </button>
-              {/* Changed mt-2 to top-full */}
-              <div className="absolute top-full left-0 w-48 bg-white shadow-md rounded p-2 z-10 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200">
-                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
-                  Sale Item 1
-                </Link>
-                <Link to={"/"} className="block px-4 py-2 hover:bg-gray-100">
-                  Sale Item 2
-                </Link>
-              </div>
+              <DropdownContent items={bedSheetsItems} />
             </div>
 
             <Link to={"/customer-policy"} className="hover:text-blue-600">
@@ -187,28 +243,20 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-20 left-0 w-full bg-white shadow-md z-20">
             <div className="px-4 py-2">
-              <a
-                href="#"
-                className="block py-3 hover:text-blue-600"
-                onClick={closeAllDropdowns}
-              >
+              <Link to="/" className="block py-3 hover:text-blue-600" onClick={closeAllDropdowns}>
                 HOME
-              </a>
-              <a
-                href="#"
-                className="block py-3 hover:text-blue-600"
-                onClick={closeAllDropdowns}
-              >
+              </Link>
+              <Link to="/" className="block py-3 hover:text-blue-600" onClick={closeAllDropdowns}>
                 NEW ARRIVALS
-              </a>
+              </Link>
 
-              {/* MEN */}
+              {/* Women Mobile Dropdown */}
               <div className="border-b">
                 <button
                   className="w-full flex justify-between items-center py-3 hover:text-blue-600"
                   onClick={() => setIsMenMobileOpen(!isMenMobileOpen)}
                 >
-                  WOMEN{" "}
+                  WOMEN
                   <ChevronDownIcon
                     className={`w-4 h-4 ml-1 transition-transform ${
                       isMenMobileOpen ? "rotate-180" : ""
@@ -217,47 +265,58 @@ const Navbar = () => {
                 </button>
                 {isMenMobileOpen && (
                   <div className="pl-4 pb-2">
-                    <Link
-                      to={"/category/Lawn%20'25"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      Lawn '25
-                    </Link>
-                    <Link
-                      to={"/category/Day%20to%20Day%20Summer"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      Day to Day Summer1
-                    </Link>
-                    <Link
-                      to={"/category/1%20Piece"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      1 Piece
-                    </Link>
-                    <Link
-                      to={"/category/2%20Piece"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      2 Piece
-                    </Link>
-                    <Link
-                      to={"/category/3%20Piece"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      3 Piece
-                    </Link>
-                    <Link
-                      to={"/category/Unstitched%20Bottoms"}
-                      className="block py-2 hover:text-blue-600"
-                    >
-                      Unstitched Bottoms
-                    </Link>
+                    {womenItems.map((section, index) => (
+                      <div key={index}>
+                        <h4 className="font-semibold mt-2 mb-1">{section.title}</h4>
+                        {section.links.map((link, linkIndex) => (
+                          <Link
+                            key={linkIndex}
+                            to={link.to}
+                            className="block py-2 hover:text-blue-600"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
 
-              {/* SALE */}
+              {/* Towels Mobile Dropdown */}
+              <div className="border-b">
+                <button
+                  className="w-full flex justify-between items-center py-3 hover:text-blue-600"
+                  onClick={() => setIsSaleMobileOpen(!isSaleMobileOpen)}
+                >
+                  TOWELS
+                  <ChevronDownIcon
+                    className={`w-4 h-4 ml-1 transition-transform ${
+                      isSaleMobileOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {isSaleMobileOpen && (
+                  <div className="pl-4 pb-2">
+                    {towelsItems.map((section, index) => (
+                      <div key={index}>
+                        <h4 className="font-semibold mt-2 mb-1">{section.title}</h4>
+                        {section.links.map((link, linkIndex) => (
+                          <Link
+                            key={linkIndex}
+                            to={link.to}
+                            className="block py-2 hover:text-blue-600"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Bed Sheets Mobile Dropdown */}
               <div className="border-b">
                 <button
                   className="w-full flex justify-between items-center py-3 text-red-600"
@@ -272,70 +331,30 @@ const Navbar = () => {
                 </button>
                 {isSaleMobileOpen && (
                   <div className="pl-4 pb-2">
-                    <a
-                      href="#"
-                      className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
-                    >
-                      Sale Item 1
-                    </a>
-                    <a
-                      href="#"
-                      className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
-                    >
-                      Sale Item 2
-                    </a>
-                  </div>
-                )}
-              </div>
-              {/* SALE */}
-              <div className="border-b">
-                <button
-                  className="w-full flex justify-between items-center py-3 text-red-600"
-                  onClick={() => setIsSaleMobileOpen(!isSaleMobileOpen)}
-                >
-                  TOWELS
-                  <ChevronDownIcon
-                    className={`w-4 h-4 ml-1 transition-transform ${
-                      isSaleMobileOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isSaleMobileOpen && (
-                  <div className="pl-4 pb-2">
-                    <a
-                      href="#"
-                      className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
-                    >
-                      Sale Item 1
-                    </a>
-                    <a
-                      href="#"
-                      className="block py-2 hover:text-blue-600"
-                      onClick={closeAllDropdowns}
-                    >
-                      Sale Item 2
-                    </a>
+                    {bedSheetsItems.map((section, index) => (
+                      <div key={index}>
+                        <h4 className="font-semibold mt-2 mb-1">{section.title}</h4>
+                        {section.links.map((link, linkIndex) => (
+                          <Link
+                            key={linkIndex}
+                            to={link.to}
+                            className="block py-2 hover:text-blue-600"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
 
-              <a
-                href="#"
-                className="block py-3 hover:text-blue-600"
-                onClick={closeAllDropdowns}
-              >
+              <Link to="/customer-policy" className="block py-3 hover:text-blue-600" onClick={closeAllDropdowns}>
+                CUSTOMER POLICY
+              </Link>
+              <Link to="/contactUS" className="block py-3 hover:text-blue-600" onClick={closeAllDropdowns}>
                 CONTACT US
-              </a>
-              <a
-                href="#"
-                className="block py-3 hover:text-blue-600"
-                onClick={closeAllDropdowns}
-              >
-                TRACK YOUR ORDER
-              </a>
+              </Link>
             </div>
           </div>
         )}

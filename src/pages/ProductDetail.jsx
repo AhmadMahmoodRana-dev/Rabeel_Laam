@@ -5,8 +5,14 @@ import {
   FaHeart,
   FaFacebookF,
   FaTwitter,
+  FaPinterest,
+  FaInstagram,
+  FaTruck,
+  FaUndo,
+  FaShieldAlt,
+  FaCheck,
   FaWhatsapp,
-  FaTelegramPlane,
+  FaLinkedinIn,
 } from "react-icons/fa";
 import image1 from "../assets/unstiched (1).png";
 import image2 from "../assets/unstiched (2).png";
@@ -17,33 +23,38 @@ import { Context } from "../Context/Context";
 import Footer from "../components/Footer/Footer";
 
 const ProductDetail = () => {
-  const [size, setSize] = useState("39/6");
-  const [type, setType] = useState("Leather");
+  const [size, setSize] = useState("M");
+  const [color, setColor] = useState("Rose Red");
   const [quantity, setQuantity] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [currentImage, setCurrentImage] = useState(image1);
-  const ProductImage = [image1, image2, image3, image4];
-  const { setOpenCart, openCart } = useContext(Context);
+  const productImages = [image1, image2, image3, image4];
+  const { setOpenCart } = useContext(Context);
 
-  const sizes = ["39/6", "40/7", "41/8", "42/9", "43/10", "44/11", "45/12"];
-  const types = ["Unstitched", "Stitched"];
+  const sizes = ["XS", "S", "M", "L", "XL"];
+  const colors = [
+    { name: "Rose Red", code: "#E11D48" },
+    { name: "Midnight Blue", code: "#1E3A8A" },
+    { name: "Sage Green", code: "#15803D" },
+  ];
 
   const shareProduct = (platform) => {
-    const url = window.location.href;
-    const text = `Check out this product: Peshawari Chappal - ZKP 10158!`; // You can customize this
+    const productUrl = encodeURIComponent(window.location.href);
+    const productName = encodeURIComponent("Floral Print Maxi Dress - Summer Collection");
+    const text = encodeURIComponent("Check out this beautiful dress I found!");
 
-    let shareUrl = "";
-    if (platform === "facebook") {
-      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-    } else if (platform === "twitter") {
-      shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-    } else if (platform === "whatsapp") {
-      shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
-    } else if (platform === "telegram") {
-      shareUrl = `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+    const shareConfig = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${productUrl}`,
+      twitter: `https://twitter.com/intent/tweet?text=${text}&url=${productUrl}`,
+      pinterest: `https://pinterest.com/pin/create/button/?url=${productUrl}&description=${productName}`,
+      whatsapp: `https://api.whatsapp.com/send?text=${text} ${productUrl}`,
+      linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${productUrl}&title=${productName}`,
+      instagram: `https://www.instagram.com/?url=${productUrl}`, // Note: Instagram doesn't support direct sharing
+    };
+
+    if (shareConfig[platform]) {
+      window.open(shareConfig[platform], "_blank", "noopener,noreferrer");
     }
-
-    window.open(shareUrl, "_blank");
   };
 
   return (
@@ -51,15 +62,15 @@ const ProductDetail = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Product Images */}
         <div className="space-y-6">
-          <div className="aspect-square overflow-hidden rounded-3xl shadow-xl border">
+          <div className="aspect-square overflow-hidden rounded-2xl shadow-lg border-2 border-gray-100">
             <img
               src={currentImage}
-              alt="Peshawari Chappal"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              alt="Floral Maxi Dress"
+              className="w-full h-full object-cover transform transition duration-500 hover:scale-105"
             />
           </div>
-          <div className="flex gap-3 pb-4 overflow-x-auto">
-            {ProductImage.map((img, index) => (
+          <div className="flex gap-3 pb-4 overflow-x-auto scrollbar-hide">
+            {productImages.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImage(img)}
@@ -68,11 +79,11 @@ const ProductDetail = () => {
                 <img
                   src={img}
                   alt={`Thumb ${index}`}
-                  className={`w-20 h-20 object-cover rounded-xl border-2 ${
+                  className={`w-20 h-20 object-cover rounded-lg border-2 transition-all ${
                     currentImage === img
-                      ? "border-gray-800 ring-2 ring-black"
-                      : ""
-                  } hover:border-gray-800 transition-colors`}
+                      ? "border-rose-500"
+                      : "border-gray-200 hover:border-gray-300"
+                  }`}
                 />
               </button>
             ))}
@@ -83,126 +94,173 @@ const ProductDetail = () => {
         <div className="space-y-8">
           <div>
             <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
-              Peshawari Chappal - ZKP 10158
+              Floral Print Maxi Dress
             </h1>
-            <p className="text-lg text-gray-500 mb-3">SKU: ZKP10158-39</p>
-            <p className="text-3xl font-bold text-gray-900 mb-6">Rs.11,900.00</p>
+            <p className="text-2xl font-semibold text-rose-600 mb-6">$89.99</p>
           </div>
 
-          {/* Description */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Product Description</h3>
-            <p className="text-gray-600">
-              Experience unmatched craftsmanship with our traditional Peshawari Chappal.
-              Made with premium leather, providing comfort and durability perfect for any occasion.
-            </p>
+           {/* Description List */}
+           <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-gray-800">Product Details</h3>
+            <ul className="text-gray-600 space-y-3">
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>Flowy chiffon fabric with floral print</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>V-neckline with delicate lace trim</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>Adjustable tie waist for customized fit</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>Hidden side zipper closure</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>Length: 58" from shoulder (size M)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
+                <span>Machine wash cold, line dry</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Sizes */}
+          {/* Color Selection */}
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              Select Size: <span className="text-gray-500 ml-2">{size}</span>
+              Color: <span className="font-normal">{color}</span>
             </h3>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="flex gap-3">
+              {colors.map((c) => (
+                <button
+                  key={c.name}
+                  onClick={() => setColor(c.name)}
+                  className={`w-10 h-10 rounded-full border-2 transition-all flex items-center justify-center ${
+                    color === c.name
+                      ? "border-rose-500 ring-2 ring-rose-200"
+                      : "border-gray-200 hover:border-gray-400"
+                  }`}
+                  style={{ backgroundColor: c.code }}
+                  title={c.name}
+                >
+                  {color === c.name && (
+                    <div className="w-3 h-3 bg-white rounded-full" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Size Selection */}
+          {/* <div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">
+              Size: <span className="font-normal">{size}</span>
+            </h3>
+            <div className="flex flex-wrap gap-3">
               {sizes.map((s) => (
                 <button
                   key={s}
                   onClick={() => setSize(s)}
-                  className={`p-3 text-center rounded-xl border-2 font-medium transition-all ${
+                  className={`px-6 py-3 rounded-lg border-2 font-medium transition-colors ${
                     size === s
-                      ? "border-[#dd211f] bg-[#dd211f] text-white"
-                      : "border-gray-200 hover:border-gray-400 bg-white text-gray-800"
+                      ? "bg-rose-500 border-rose-500 text-white"
+                      : "bg-white border-gray-200 hover:border-gray-300 text-gray-800"
                   }`}
                 >
                   {s}
                 </button>
               ))}
             </div>
+            <Link
+              to="/size-guide"
+              className="mt-2 inline-block text-rose-600 hover:text-rose-700 text-sm"
+            >
+              View size guide
+            </Link>
+          </div> */}
+
+          {/* Quantity & Actions */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-6">
+              <span className="text-lg font-semibold text-gray-800">
+                Quantity:
+              </span>
+              <div className="flex items-center gap-4 bg-gray-50 px-4 py-2 rounded-full">
+                <button
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="rounded-full h-8 w-8 hover:bg-gray-100 flex items-center justify-center"
+                >
+                  <FaMinus className="h-4 w-4 text-gray-600" />
+                </button>
+                <span className="text-xl font-medium w-8 text-center">
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="rounded-full h-8 w-8 hover:bg-gray-100 flex items-center justify-center"
+                >
+                  <FaPlus className="h-4 w-4 text-gray-600" />
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={() => setOpenCart(true)}
+                className="flex-1 py-4 text-lg rounded-xl text-white bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center gap-2"
+              >
+                Add to Cart
+              </button>
+              <Link
+                to="/checkout"
+                className="flex-1 py-4 text-lg rounded-xl text-rose-600 bg-white border-2 border-rose-500 hover:bg-rose-50 transition-colors text-center"
+              >
+                Buy Now
+              </Link>
+            </div>
+
+            <button
+              className="w-full py-3 rounded-xl border-2 border-gray-200 hover:border-rose-500 hover:text-rose-600 transition-colors flex items-center justify-center gap-2"
+              onClick={() => setIsWishlisted(!isWishlisted)}
+            >
+              <FaHeart
+                className={`h-5 w-5 ${
+                  isWishlisted ? "text-rose-500 fill-current" : ""
+                }`}
+              />
+              {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+            </button>
           </div>
 
-          {/* Types */}
-          <div>
+          {/* Social Sharing */}
+            {/* Social Sharing */}
+            <div className="pt-6 border-t border-gray-100">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
-              Select Type: <span className="text-gray-500 ml-2">{type}</span>
+              Share This Product
             </h3>
-            <div className="grid grid-cols-3 gap-3">
-              {types.map((t) => (
+            <div className="flex gap-4">
+              {[
+                { icon: FaFacebookF, platform: "facebook", color: "bg-blue-600" },
+                { icon: FaWhatsapp, platform: "whatsapp", color: "bg-green-500" },
+                { icon: FaInstagram, platform: "instagram", color: "bg-pink-600" },
+                { icon: FaTwitter, platform: "twitter", color: "bg-sky-500" },
+                { icon: FaPinterest, platform: "pinterest", color: "bg-red-600" },
+                { icon: FaLinkedinIn, platform: "linkedin", color: "bg-blue-800" },
+              ].map((social, index) => (
                 <button
-                  key={t}
-                  onClick={() => setType(t)}
-                  className={`p-3 text-center rounded-xl border-2 font-medium transition-all ${
-                    type === t
-                      ? "border-[#075686] bg-[#075686] text-white"
-                      : "border-gray-200 hover:border-gray-400 bg-white text-gray-800"
-                  }`}
+                  key={index}
+                  onClick={() => shareProduct(social.platform)}
+                  className={`p-3 rounded-full text-white hover:opacity-90 transition-opacity ${social.color} tooltip`}
+                  data-tip={social.platform}
                 >
-                  {t}
+                  <social.icon className="h-5 w-5" />
                 </button>
               ))}
-            </div>
-          </div>
-
-          {/* Quantity */}
-          <div className="flex items-center gap-6">
-            <span className="text-lg font-semibold text-gray-800">Quantity:</span>
-            <div className="flex items-center gap-4 bg-gray-100 px-4 py-2 rounded-full">
-              <button
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="rounded-full h-8 w-8 hover:bg-gray-200"
-              >
-                <FaMinus className="h-4 w-4" />
-              </button>
-              <span className="text-xl font-medium w-8 text-center">
-                {quantity}
-              </span>
-              <button
-                onClick={() => setQuantity(quantity + 1)}
-                className="rounded-full h-8 w-8 hover:bg-gray-200"
-              >
-                <FaPlus className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button onClick={() => setOpenCart(!openCart)} className="flex-1 md:h-14 py-3 text-lg rounded-xl text-white bg-gray-900 hover:bg-gray-800">
-              Add to Cart
-            </button>
-            <Link to={'/checkout'} className="flex-1 text-center md:h-14 py-3 text-lg rounded-xl text-white bg-[#075686] hover:bg-[#4c6f83]">
-              Buy it Now
-            </Link>
-          </div>
-
-          {/* Wishlist */}
-          <button
-            className="text-gray-600 hover:text-red-500 gap-2 flex"
-            onClick={() => setIsWishlisted(!isWishlisted)}
-          >
-            <FaHeart
-              className={`h-5 w-5 ${
-                isWishlisted ? "fill-red-500 stroke-red-500" : ""
-              }`}
-            />
-            {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
-          </button>
-
-          {/* Share Section */}
-          <div className="pt-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">Share This Product</h3>
-            <div className="flex gap-4">
-              <button onClick={() => shareProduct("facebook")} className="bg-blue-600 p-3 rounded-full text-white hover:bg-blue-700">
-                <FaFacebookF />
-              </button>
-              <button onClick={() => shareProduct("twitter")} className="bg-sky-400 p-3 rounded-full text-white hover:bg-sky-500">
-                <FaTwitter />
-              </button>
-              <button onClick={() => shareProduct("whatsapp")} className="bg-green-500 p-3 rounded-full text-white hover:bg-green-600">
-                <FaWhatsapp />
-              </button>
-              <button onClick={() => shareProduct("telegram")} className="bg-blue-400 p-3 rounded-full text-white hover:bg-blue-500">
-                <FaTelegramPlane />
-              </button>
             </div>
           </div>
         </div>

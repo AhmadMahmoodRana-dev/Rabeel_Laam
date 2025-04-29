@@ -234,7 +234,15 @@ export default function CheckoutForm() {
                       {({ field, meta }) => (
                         <input
                           {...field}
+                          type="text"
+                          maxLength="11"
                           placeholder="Phone"
+                          onInput={(e) => {
+                            e.target.value = e.target.value.replace(
+                              /[^0-9]/g,
+                              ""
+                            ); // Only numbers
+                          }}
                           className={`${inputStyle} ${
                             meta.touched && meta.error
                               ? "border-red-500 focus:ring-red-300 focus:border-red-400"
