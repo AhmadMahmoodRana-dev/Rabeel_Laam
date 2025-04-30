@@ -40,7 +40,9 @@ const ProductDetail = () => {
 
   const shareProduct = (platform) => {
     const productUrl = encodeURIComponent(window.location.href);
-    const productName = encodeURIComponent("Floral Print Maxi Dress - Summer Collection");
+    const productName = encodeURIComponent(
+      "Floral Print Maxi Dress - Summer Collection"
+    );
     const text = encodeURIComponent("Check out this beautiful dress I found!");
 
     const shareConfig = {
@@ -99,35 +101,46 @@ const ProductDetail = () => {
             <p className="text-2xl font-semibold text-rose-600 mb-6">$89.99</p>
           </div>
 
-           {/* Description List */}
-           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-800">Product Details</h3>
-            <ul className="text-gray-600 space-y-3">
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>Flowy chiffon fabric with floral print</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>V-neckline with delicate lace trim</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>Adjustable tie waist for customized fit</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>Hidden side zipper closure</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>Length: 58" from shoulder (size M)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <FaCheck className="text-rose-600 mt-1 flex-shrink-0" />
-                <span>Machine wash cold, line dry</span>
-              </li>
-            </ul>
+          {/* Description List */}
+          <div className="mt-8 border-t pt-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+              Product Details
+            </h2>
+
+            <div className="space-y-4 text-gray-700 text-sm leading-relaxed">
+              <p className="text-base text-gray-800 font-medium">
+                Stitched 3-Piece Suit
+              </p>
+
+              <ul className="list-disc list-inside space-y-1">
+                <li>
+                  <span className="font-medium">Shirt:</span> Printed Cambric
+                  Shirt
+                </li>
+                <li>
+                  <span className="font-medium">Dupatta:</span> Printed Chiffon
+                  Dupatta
+                </li>
+                <li>
+                  <span className="font-medium">Trouser:</span> Dyed Cambric
+                  Trouser
+                </li>
+                <li>
+                  <span className="font-medium">Work Technique:</span> Digital
+                  Printed
+                </li>
+              </ul>
+
+              <p className="mt-2">
+                <span className="font-medium">Model Info:</span> Height 5'7" —
+                Wearing size 8
+              </p>
+
+              <p className="mt-4 text-gray-600 italic">
+                Please note: Colors may slightly vary due to lighting and screen
+                settings.
+              </p>
+            </div>
           </div>
 
           {/* Color Selection */}
@@ -238,19 +251,39 @@ const ProductDetail = () => {
           </div>
 
           {/* Social Sharing */}
-            {/* Social Sharing */}
-            <div className="pt-6 border-t border-gray-100">
+          {/* Social Sharing */}
+          <div className="pt-6 border-t border-gray-100">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">
               Share This Product
             </h3>
             <div className="flex gap-4">
               {[
-                { icon: FaFacebookF, platform: "facebook", color: "bg-blue-600" },
-                { icon: FaWhatsapp, platform: "whatsapp", color: "bg-green-500" },
-                { icon: FaInstagram, platform: "instagram", color: "bg-pink-600" },
+                {
+                  icon: FaFacebookF,
+                  platform: "facebook",
+                  color: "bg-blue-600",
+                },
+                {
+                  icon: FaWhatsapp,
+                  platform: "whatsapp",
+                  color: "bg-green-500",
+                },
+                {
+                  icon: FaInstagram,
+                  platform: "instagram",
+                  color: "bg-pink-600",
+                },
                 { icon: FaTwitter, platform: "twitter", color: "bg-sky-500" },
-                { icon: FaPinterest, platform: "pinterest", color: "bg-red-600" },
-                { icon: FaLinkedinIn, platform: "linkedin", color: "bg-blue-800" },
+                {
+                  icon: FaPinterest,
+                  platform: "pinterest",
+                  color: "bg-red-600",
+                },
+                {
+                  icon: FaLinkedinIn,
+                  platform: "linkedin",
+                  color: "bg-blue-800",
+                },
               ].map((social, index) => (
                 <button
                   key={index}
