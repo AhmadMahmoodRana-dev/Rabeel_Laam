@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   const DropdownContent = ({ items }) => (
-    <div className="absolute top-full left-0 bg-white shadow-lg p-6 z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 xl:w-[700px] lg:w-[500px] md:w-[390px] rounded">
+    <div className="fixed top-20 left-[30%] bg-white shadow-lg p-6 z-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 xl:w-[700px] lg:w-[500px] md:w-[390px] rounded">
       <div className="grid grid-cols-4 gap-6">
         {items.map((section, index) => (
           <div key={index}>
